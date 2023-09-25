@@ -1,0 +1,113 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+    <Dialog
+        id="addCustomerDialog"
+        title="Add Customer"
+    >
+    <VBox class="sapUiSmallMargin">
+		<f:Form id="FormToolbar"
+			editable="true"
+			ariaLabelledBy="Title1">
+			<f:toolbar>
+				<Toolbar id="TB1">
+					<Title id="Title1" text="Details"/>
+					<ToolbarSpacer />
+					<Button icon="sap-icon://information"/>
+				</Toolbar>
+			</f:toolbar>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="3"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="4"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="2"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+				<f:FormContainer id="SubmitForm" ariaLabelledBy="Title2">
+					<!-- <f:toolbar>
+						<Toolbar>
+							<Title id="Title2" text="Office"/>
+							<ToolbarSpacer />
+							<Button icon="sap-icon://settings"/>
+						</Toolbar>
+					</f:toolbar> -->
+					<f:formElements>
+						<f:FormElement label="Name">
+							<f:fields>
+								<Input placeholder="Enter name" change="handleNameChange" required = "true" id="name"/>
+							</f:fields>
+						</f:FormElement>
+						
+                        <f:FormElement label="Email">
+							<f:fields>
+								<Input placeholder="Enter email" type="Email" change="handleEmailChange" id="email"/>
+							</f:fields>
+						</f:FormElement>
+
+                        <f:FormElement label="Phone number">
+							<f:fields>
+								<Input placeholder="Enter number" type="Number" id="phone_number"/>
+							</f:fields>
+						</f:FormElement>
+
+                        <f:FormElement label="Address">
+							<f:fields>
+								<Input placeholder="Enter address" id="address"/>
+							</f:fields>
+						</f:FormElement>
+
+                        <f:FormElement label="DOB">
+							<f:fields>
+								<DatePicker change="handleDateChange" id="dob" type="Navigation" />
+							</f:fields>
+						</f:FormElement>
+                        
+						<f:FormElement label="Category">
+							<f:fields>
+								<Select
+								id="category"
+						forceSelection="true"
+						selectedKey="{/id}"
+						items="{
+							path: '/category',
+							sorter: { path: '' }
+						}">
+					<core:Item key="{id}" text="{desc}" />
+				</Select>
+							</f:fields>
+						</f:FormElement>
+                        <f:FormElement label="Payment Status">
+							<f:fields>
+								<Select
+								id="payment_status"
+						forceSelection="true"
+						selectedKey="{/id}"
+						items="{
+							path: '/payment_status',
+							sorter: { path: '' }
+						}">
+					<core:Item key="{id}" text="{desc}" />
+				</Select>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+		</f:Form>
+	</VBox>
+
+        <beginButton>
+            <Button id="createButton" text="Create" press=".onGetValuesPress" />
+        </beginButton>
+
+        <endButton>
+            <Button id="cancelButton" text="Cancel" press=".onDialogClose" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
