@@ -5,13 +5,13 @@
 	xmlns:core="sap.ui.core"
 	xmlns:f="sap.ui.layout.form"
 	>
+
 	<App>
-		<Page title="Customers"
-			class="custom-page-style" 
-			showNavButton="false">
+		<Page> 
 			<subHeader>
 				<Toolbar>
-					<SearchField id="searchField" width="50%" liveChange="onSearch"/>
+					<ToolbarSpacer />
+					<SearchField id="searchField" width="30%" liveChange="onSearch" style="margin: 0 auto;"/>
 					<ToolbarSpacer />
 					<Button
     					text="Refresh"
